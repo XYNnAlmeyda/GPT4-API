@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- public/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,7 @@
     <title>Chatbot</title>
     <style>
         body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; }
-        #chatbox { width: 100%; max-width: 600px; margin-top: 20px; }
+        #chatbox { width: 100%; max-width: 600px; margin-top: 20px; border: 1px solid #ccc; padding: 10px; overflow-y: auto; height: 400px; }
         .message { margin: 10px; padding: 10px; border-radius: 10px; }
         .user { background-color: #e1f5fe; text-align: right; }
         .assistant { background-color: #f1f1f1; text-align: left; }
@@ -41,9 +41,8 @@
             addMessage(`You: ${message}`, 'user');
             userInput.value = '';
 
-            // Send message to backend
             try {
-                const response = await fetch('http://localhost:3000/chat', {
+                const response = await fetch('/api/chat', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ message })
