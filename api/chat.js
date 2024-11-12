@@ -3,7 +3,7 @@ const express = require('express');
 const { GPTx } = require('@ruingl/gptx');
 
 const app = express();
-const gptx = new GPTx({ provider: 'Aryahcr', model: 'gpt-4' });
+const gptx = new GPTx({ provider: 'Voids', model: 'claude-3-haiku-20240307' });
 
 app.use(express.json());
 
